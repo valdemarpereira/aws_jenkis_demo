@@ -41,9 +41,7 @@ pipeline {
         branch 'develop'
       }
       steps {
-        sh 'oc login $OPENSHIFT_HOST --username $OPENSHIFT_CREDS_USR --password $OPENSHIFT_CREDS_PSW'
-        sh 'oc project three-pt-dev'
-        sh 'oc start-build threept-dev'
+        echo 'DeployToDev'
       }
     }
   }
@@ -53,7 +51,5 @@ pipeline {
   }
   environment {
     SONARQUBE_HOST = "http://localhost:9000"
-    OPENSHIFT_HOST = "https://mp-dev-cnap-master.bmwgroup.net"
-    OPENSHIFT_CREDS = credentials('threept-openshift')
   }
 }
